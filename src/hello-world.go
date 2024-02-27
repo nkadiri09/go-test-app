@@ -8,8 +8,10 @@ import (
 
 func main() {
     message := os.Getenv("MESSAGE")
+    testmessage := os.Getenv("TEST")
 
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, message)
         fmt.Fprintf(w, message)
     })
 
