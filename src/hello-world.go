@@ -8,11 +8,13 @@ import (
 
 func main() {
     message := os.Getenv("MESSAGE")
-    testmessage := os.Getenv("TEST")
+    test := os.Getenv("TEST")
 
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintf(w, message)
-        fmt.Fprintf(w, message)
+        concatenatedMessage := message + " " + test
+
+        // Write the concatenated message to the response
+        fmt.Fprintf(w, concatenatedMessage)
     })
 
     fmt.Println("Starting server on port 8080.")
